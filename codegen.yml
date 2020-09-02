@@ -1,0 +1,15 @@
+overwrite: true
+schema:
+  - src/api/schema.graphql
+generates:
+  src/types/schema.ts:
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
+    schema: ./src/api/**/*.graphql
+    plugins:
+      - typescript
+    config:
+      noNamespaces: true
+      maybeValue: T | undefined
+      skipTypename: true
