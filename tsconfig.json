@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es2016",
+    "lib": ["esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "experimentalDecorators": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "emitDecoratorMetadata": true,
+    "noUnusedLocals": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "typeRoots": ["node_modules/@types"],
+    "types": ["reflect-metadata"],
+    "rootDir": "./src"
+  },
+  "include": ["src/**/*.*", "mysql-migrations/**/*.*"],
+  "exclude": ["node_modules", "build", "utils"]
+}
