@@ -1,0 +1,42 @@
+schema {
+  query: Query
+}
+enum Sort {
+  Desc
+  Asc
+}
+type Query {
+  book(where: BookWhere!): Book
+  author(id: ID!): Author
+  readAllBooks(where: BookWhere, last: Int, Sort: Sort): [Book]
+  readAllAuthors(where: AuthorWhere, last: Int, Sort: Sort): [Author]
+}
+input BookWhere {
+  id: ID
+  title: String
+  authorId: String
+  authorName: String
+  isbn: String
+  publicationDate: String
+}
+type Book {
+  id: ID
+  title: String
+  author: Author
+  isbn: String
+  publicationDate: String
+}
+type Author {
+  id: ID
+  firstName: String
+  lastName: String
+  fullName: String
+  books(ids: [ID!], title: [String!], publicationDate: String, isbn: String): [Book!]
+}
+input AuthorWhere {
+  id: ID
+  name: String
+  firstName: String
+  lastName: String
+  bookName: String
+}

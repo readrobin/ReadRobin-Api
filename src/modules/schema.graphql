@@ -1,0 +1,17 @@
+# import * from "./book/schema/book.graphql"
+# import * from "./author/schema/author.graphql"
+
+enum Sort {
+	Desc
+	Asc
+}
+
+type Query {
+	# Singular Resources
+	book(where: BookWhere!): Book
+	author(id: ID!, name: String): Author
+
+	# All Resources With Conditions
+	readAllBooks(where: BookWhere, last: Int, Sort: Sort): [Book]
+	readAllAuthors(where: AuthorWhere, last: Int, Sort: Sort): [Author]
+}

@@ -1,0 +1,29 @@
+# import * from "../../book/schema/book.graphql"
+
+type Author {
+	id: ID
+	name: String
+	firstName: String
+	lastName: String
+	books(
+		ids: [ID!]
+		title: [String!]
+		publicationDate: String
+		isbn: String
+	): [Book!]
+}
+
+type AuthorOutput {
+	name: String
+	firstName: String
+	lastName: String
+	bookIds: [String]
+}
+
+input AuthorWhere {
+	id: ID
+	name: String
+	firstName: String
+	lastName: String
+	bookName: String
+}
