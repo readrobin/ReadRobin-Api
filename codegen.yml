@@ -1,15 +1,22 @@
 overwrite: true
 schema:
-  - src/api/schema.graphql
+  - src/modules/schema.graphql
 generates:
-  src/types/schema.ts:
+  src/@types/types.d.ts:
     hooks:
       afterOneFileWrite:
         - prettier --write
-    schema: ./src/api/**/*.graphql
+    schema: ./src/modules/**/*.graphql
     plugins:
       - typescript
     config:
       noNamespaces: true
       maybeValue: T | undefined
       skipTypename: true
+      noExport: true
+  src/core/schema.graphql:
+    plugins:
+      - schema-ast
+    config:
+      includeDirectives: true
+      commentDescriptions: false

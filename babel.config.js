@@ -1,5 +1,5 @@
 module.exports = (api) => {
-	api.cache.forever();
+	api.cache.never();
 
 	return {
 		presets: [
@@ -18,6 +18,7 @@ module.exports = (api) => {
 			],
 		],
 		plugins: [
+			'import-graphql',
 			'@babel/plugin-syntax-dynamic-import',
 			['@babel/plugin-proposal-decorators', { legacy: true }],
 			['@babel/plugin-proposal-class-properties', { loose: true }],
